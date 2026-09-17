@@ -39,6 +39,8 @@ ALGORITHM='HS256'
 
 def authenticate_user(username,password,db):
     user=db.query(User).filter(User.username==username).first()
+    print(username)
+    print(user)
     if user is None:
         return False
     if bcrypt_context.verify(password,user.hashpassword):
